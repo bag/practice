@@ -1,2 +1,2 @@
-# practice
+# Practice
 Contains practice code for skill building, for example LeetCode and HackerRank exercises.
