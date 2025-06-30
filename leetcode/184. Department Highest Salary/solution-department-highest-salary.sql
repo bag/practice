@@ -1,23 +1,20 @@
 # Write your MySQL query statement below
-with department_max_salary as (
-    select
-        d.*,
-        max(e.salary) as max_salary
-    from
-        Department d
-    join
-        Employee e on d.id = e.departmentId
-    group by
-        d.id
-)
 select
     d.name as "Department",
     e.name as "Employee",
     e.salary as "Salary"
 from
     Employee e
-join
-    department_max_salary d on d.id = e.departmentId
+join Department d on e.departmentId = d.id
 where
-    e.salary = d.max_salary and
-    e.departmentId = d.id
+    -- This is a "tuple comparison" or a 
+    -- "multi-column in clause".
+    (e.salary, e.departmentId) in (
+        select
+            max(salary) as "Salary",
+            departmentId
+        from
+            Employee
+        group by
+            departmentId
+    )
