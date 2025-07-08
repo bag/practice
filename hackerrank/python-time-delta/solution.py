@@ -14,7 +14,7 @@ def time_delta(t1, t2):
     u1 = datetime.strptime(t1, fs)
     u2 = datetime.strptime(t2, fs)
     td = u1 - u2
-    return(str(round(td.total_seconds())))
+    return(str(round(abs(td.total_seconds()))))
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
