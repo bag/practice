@@ -2,16 +2,16 @@
 from collections import defaultdict
 
 n, m = map(int, input().split())
-# Load A, a list.
-A = list()
+# Use the defaultdict!
+d = defaultdict(list)
+# Load A, an entry in a defaultdict.
 for _ in range(int(n)):
-    A.append(input())
-# Load B, a list.
-B = list()
+    d['A'].append(input())
+# Load B, an entry in a defaultdict.
 for _ in range(int(m)):
-    B.append(input())
+    d['B'].append(input())
 # Print 1-based location of each item in A in B,
 # or -1 if no match.
-for bval in B:
-    s = " ".join([str(i + 1) for i, n in enumerate(A) if n == bval])
+for bval in d['B']:
+    s = " ".join([str(i + 1) for i, n in enumerate(d['A']) if n == bval])
     print(s if s != "".strip() else "-1")
