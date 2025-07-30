@@ -1,3 +1,2 @@
 # https://www.hackerrank.com/challenges/python-power-mod-power/problem
-a, b, m = int(input()), int(input()), int(input())
-print(pow(a, b), pow(a, b, m), sep='\n')
+print(pow(a := int(input()), b := int(input())), pow(a, b, m := int(input())), sep='\n')
